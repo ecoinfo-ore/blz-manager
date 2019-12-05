@@ -29,3 +29,5 @@ Example :
           -jar blz-manager-1.0-jar-with-dependencies.jar
 
 ```
+
+-DOp = Start / Stop / Config 
