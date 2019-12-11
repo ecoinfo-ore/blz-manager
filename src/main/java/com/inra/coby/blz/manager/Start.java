@@ -119,7 +119,7 @@ public class Start {
           blzProcessPIDLine = stream.filter( line -> line.toLowerCase()
                                                          .contains("blazegraph") )
                                     .findFirst()
-                                    .get() ;
+                                    .orElse(null) ;
       } catch ( IOException e ) {
 	 System.out.println(" No BlazeGraph Process Found ! ") ;
          System.exit(0) ;

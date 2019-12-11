@@ -73,8 +73,8 @@ public class Config {
          return ;
       }
       
-      System.out.println(" \n Deleting Blz Database... " )                  ;
-      System.out.println(" Press Enter to Cancel or just wait 3 seconds " ) ;
+      System.out.println(" \n\n Deleting Blz Database... " )                      ;
+      System.out.println(" \nPress Enter to Cancel or just wait 3 seconds \n\n" ) ;
             
       int x = 3 ; // wait 3 seconds at most
 

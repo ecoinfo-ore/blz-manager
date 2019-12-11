@@ -22,18 +22,21 @@ public class Stop {
         String pidFile = System.getProperty("user.dir") + File.separator + "pidfile" ;
 
         if( ! Files.exists(Paths.get(pidFile))) {
-            System.out.println("\n + No Blazegraph Process to Stop ! \n ") ;
+            System.out.println("\n + No Blazegraph Process to Stop ! \n ")      ;
             return ;
         }
         
-        System.out.println(" \n + Stoping BlazeGraph Process...    ") ;
+        System.out.println(" \n + Stoping BlazeGraph Process...    " )          ;
+        System.out.println(" Get BLZ PID from File : "  + pidFile    )          ;
+        String pidString = new String(Files.readAllBytes(Paths.get(pidFile)))   ;
+        System.out.println(" Kill BLZ with PID : " + pidString )                ;
         
-        int pid  = Integer.parseInt(new String(Files.readAllBytes(Paths.get(pidFile)))) ;
+        int pid  = Integer.parseInt(pidString) ;
         PidProcess process = Processes.newPidProcess(pid) ;
         ProcessUtil.destroyGracefullyOrForcefullyAndWait( process               ,
-                                                          50                    ,
+                                                          100                   ,
                                                           TimeUnit.MILLISECONDS ,
-                                                          100                   , 
+                                                          200                   , 
                                                           TimeUnit.MILLISECONDS ) ;
         
         Files.delete(Paths.get(pidFile)) ;
