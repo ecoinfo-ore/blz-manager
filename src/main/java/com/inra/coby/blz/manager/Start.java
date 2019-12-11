@@ -106,11 +106,12 @@ public class Start {
       executor.setStreamHandler (
               new PumpStreamHandler( new FileOutputStream(new File(pidFile))  ,
                                      new FileOutputStream(new File( pidFile)) ,
-                                     System.in )     ) ;
+                                     System.in )     )                        ;
             
-      executor.execute(cmdLine, resultHandler )        ;
+      executor.execute(cmdLine )                                              ;
        
-      resultHandler.waitFor(1000)                      ;
+      // executor.execute(cmdLine, resultHandler ) ;
+      // resultHandler.waitFor(1000)               ;
 
       String blzProcessPIDLine = null ;
    
