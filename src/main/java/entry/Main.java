@@ -4,6 +4,7 @@
  import com.inra.coby.blz.manager.Start;
  import com.inra.coby.blz.manager.Config;
  import static com.inra.coby.blz.manager.Utils.getProperty;
+import static com.inra.coby.blz.manager.Utils.removeWrappedSimpleOrDoubleQuotes;
 
  public class Main {
 
@@ -24,17 +25,17 @@
             
     public static void main(String[] args) throws Exception     {
         
-        String operation  = getProperty("Op")                       ; // start - stop - config 
-        String rwMode     = getProperty("RwMode")                   ; // ro - rw
-        Integer rwPort    = Integer.parseInt(getProperty("RwPort")) ;
-        Integer roPort    = Integer.parseInt(getProperty("RoPort")) ;
-        String namespace  = getProperty("Namespace")                ;
-        String host       = getProperty("Host")                     ;
-        String blzDir     = getProperty("BlzDir")                   ;
-        String blzJarName = getProperty("BlzJarName")               ;
-        String _xms       = getProperty("Xms")                      ;
-        String _xmx       = getProperty("Xmx")                      ;
-        String _maxMem    = getProperty("MaxMem")                   ;
+        String operation  = removeWrappedSimpleOrDoubleQuotes(getProperty("Op") )           ; // start - stop - config 
+        String rwMode     = removeWrappedSimpleOrDoubleQuotes(getProperty("RwMode"))        ; // ro - rw
+        Integer rwPort    = Integer.parseInt(getProperty("RwPort"))                         ;
+        Integer roPort    = Integer.parseInt(getProperty("RoPort"))                         ;
+        String namespace  = removeWrappedSimpleOrDoubleQuotes(getProperty("Namespace") )    ;
+        String host       = removeWrappedSimpleOrDoubleQuotes(getProperty("Host") )         ;
+        String blzDir     = removeWrappedSimpleOrDoubleQuotes(getProperty("BlzDir")  )      ;
+        String blzJarName = removeWrappedSimpleOrDoubleQuotes(getProperty("BlzJarName"))    ;
+        String _xms       = removeWrappedSimpleOrDoubleQuotes(getProperty("Xms") )          ;
+        String _xmx       = removeWrappedSimpleOrDoubleQuotes(getProperty("Xmx") )          ;
+        String _maxMem    = removeWrappedSimpleOrDoubleQuotes(getProperty("MaxMem"))        ;
         
         if( System.getProperty("H") != null   || System.getProperty("Help") != null )       {
            System.out.println("                                                          ") ;

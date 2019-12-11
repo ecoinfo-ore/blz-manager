@@ -24,4 +24,16 @@ public class Utils {
         return directoryPath ;
     }
     
+    public static String removeWrappedSimpleOrDoubleQuotes( String str ) {
+        if( str == null ) return str        ; 
+        if( ( str.trim().startsWith("\"")  &&
+              str.trim().endsWith("\"")  ) || 
+            ( str.trim().startsWith("'")   &&
+            str.trim().endsWith("'") ) )    {
+            return str.substring( 1, str.length() - 1 )   ;
+        }
+        
+        return str ;
+    }
+    
 }
